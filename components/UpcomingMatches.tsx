@@ -1,4 +1,4 @@
-import { Match, Team } from "@/types/api";
+import { Match } from "@/types/api";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { 
   Dialog,
