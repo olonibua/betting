@@ -28,7 +28,7 @@ export interface ComboboxProps {
 
 const Command = React.forwardRef<
   HTMLDivElement,
-  React.ComponentPropsWithoutRef<typeof CommandPrimitive>
+  React.ComponentProps<typeof CommandPrimitive>
 >(({ className, ...props }, ref) => (
   <CommandPrimitive
     ref={ref}
