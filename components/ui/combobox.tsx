@@ -5,7 +5,7 @@ import { Check, ChevronsUpDown } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import {
-  Command,
+  Command as CommandRoot,
   CommandEmpty,
   CommandGroup,
   CommandInput,
@@ -16,6 +16,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover"
+import { Command as CommandPrimitive } from "cmdk"
 
 export interface ComboboxProps {
   items: { value: string; label: string }[]
@@ -24,6 +25,21 @@ export interface ComboboxProps {
   disabled?: boolean
   placeholder?: string
 }
+
+const Command = React.forwardRef<
+  React.ElementRef<typeof CommandPrimitive>,
+  React.ComponentPropsWithoutRef<typeof CommandPrimitive>
+>(({ className, ...props }, ref) => (
+  <CommandPrimitive
+    ref={ref}
+    className={cn(
+      "flex h-full w-full flex-col overflow-hidden rounded-md bg-popover text-popover-foreground",
+      className
+    )}
+    {...props}
+  />
+))
+Command.displayName = CommandPrimitive.displayName
 
 export function Combobox({
   items,
@@ -59,7 +75,7 @@ export function Combobox({
         </Button>
       </PopoverTrigger>
       <PopoverContent className="w-[--radix-popover-trigger-width] p-0">
-        <Command>
+        <CommandRoot>
           <CommandInput
             placeholder="Search..."
             value={searchQuery}
@@ -87,7 +103,7 @@ export function Combobox({
               </CommandItem>
             ))}
           </CommandGroup>
-        </Command>
+        </CommandRoot>
       </PopoverContent>
     </Popover>
   )
