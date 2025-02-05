@@ -103,8 +103,7 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="space-y-4">
             <UpcomingMatches 
-              matches={matches} 
-              teams={teams}
+              matches={matches}
               leagueShortcut={selectedLeague ? selectedLeague.split('-')[0] : ''}
               leagueSeason={selectedLeague ? parseInt(selectedLeague.split('-')[1]) : 0}
             />

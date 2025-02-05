@@ -13,6 +13,8 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from ".
 // components/UpcomingMatches.tsx
 interface UpcomingMatchesProps {
   matches: Match[];
+  leagueShortcut: string;
+  leagueSeason: number;
 }
 
 export const UpcomingMatches: React.FC<UpcomingMatchesProps> = ({ matches }) => {
