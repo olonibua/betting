@@ -55,88 +55,23 @@ interface TeamStatsDisplayProps {
 }
 
 const TeamStatsDisplay: React.FC<TeamStatsDisplayProps> = ({ teamStats }) => {
-  const formatPercentage = (value: number): string => `${value.toFixed(1)}%`;
-
   return (
-    <Card className="h-full">
+    <Card>
       <CardHeader>
-        <CardTitle className="text-primary font-bold mb-4">
-          Match Performance
-        </CardTitle>
+        <CardTitle>Team Statistics</CardTitle>
       </CardHeader>
-      <CardContent className="space-y-6">
-        <div className="space-y-2">
-              <StatItem label="Wins" value={teamStats.matchPerformance.wins} />
-              <StatItem label="Draws" value={teamStats.matchPerformance.draws} />
-              <StatItem label="Losses" value={teamStats.matchPerformance.losses} />
-              <StatItem
-                label="Goals Scored"
-                value={teamStats.matchPerformance.goalsScored}
-              />
-              <StatItem
-                label="Goals Conceded"
-                value={teamStats.matchPerformance.goalsConceded}
-              />
-              <StatItem
-                label="Clean Sheets"
-                value={teamStats.matchPerformance.cleanSheets}
-              />
+      <CardContent className="space-y-4">
+        <div>
+          <h3 className="font-semibold mb-2">Match Performance</h3>
+          <StatItem label="Wins" value={teamStats.matchPerformance.wins} />
+          <StatItem label="Draws" value={teamStats.matchPerformance.draws} />
+          <StatItem label="Losses" value={teamStats.matchPerformance.losses} />
         </div>
-
-        <div className="border-t border-border pt-6">
-          <CardTitle className="text-primary font-bold mb-4">
-            Match Statistics
-          </CardTitle>
-          <div className="space-y-2">
-              <StatItem
-                label="Possession"
-                value={formatPercentage(teamStats.matchStatistics.possession)}
-              />
-              <StatItem
-                label="Shots"
-                value={teamStats.matchStatistics.shots}
-              />
-              <StatItem
-                label="Shots on Target"
-                value={teamStats.matchStatistics.shotsOnTarget}
-              />
-              <StatItem
-                label="Corners"
-                value={teamStats.matchStatistics.corners}
-              />
-              <StatItem
-                label="Free Kicks"
-                value={teamStats.matchStatistics.freeKicks}
-              />
-              <StatItem
-                label="Penalties"
-                value={teamStats.matchStatistics.penalties}
-              />
-          </div>
-        </div>
-
-        <div className="border-t border-border pt-6">
-          <CardTitle className="text-primary font-bold mb-4">
-            Disciplinary Records
-          </CardTitle>
-          <div className="space-y-2">
-              <StatItem
-                label="Yellow Cards"
-                value={teamStats.disciplinaryRecords.yellowCards}
-              />
-              <StatItem
-                label="Red Cards"
-                value={teamStats.disciplinaryRecords.redCards}
-              />
-              <StatItem
-                label="Fouls"
-                value={teamStats.disciplinaryRecords.fouls}
-              />
-              <StatItem
-                label="Offsides"
-                value={teamStats.disciplinaryRecords.offsides}
-              />
-          </div>
+        <div>
+          <h3 className="font-semibold mb-2">Match Statistics</h3>
+          <StatItem label="Possession" value={`${teamStats.matchStatistics.possession}%`} />
+          <StatItem label="Shots" value={teamStats.matchStatistics.shots} />
+          <StatItem label="Shots on Target" value={teamStats.matchStatistics.shotsOnTarget} />
         </div>
       </CardContent>
     </Card>

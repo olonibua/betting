@@ -13,10 +13,9 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from ".
 // components/UpcomingMatches.tsx
 interface UpcomingMatchesProps {
   matches: Match[];
-  teams: Team[];
 }
 
-export function UpcomingMatches({ matches, teams }: UpcomingMatchesProps) {
+export const UpcomingMatches: React.FC<UpcomingMatchesProps> = ({ matches }) => {
   const [selectedMatch, setSelectedMatch] = useState<Match | null>(null);
   const [analysisRange, setAnalysisRange] = useState("5");
   
@@ -175,4 +174,4 @@ export function UpcomingMatches({ matches, teams }: UpcomingMatchesProps) {
       </Dialog>
     </>
   );
-}
+};
